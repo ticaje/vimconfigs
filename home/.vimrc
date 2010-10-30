@@ -1,4 +1,11 @@
-"Fabio Kung <fabio.kung@gmail.com>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""                 Vim Configuration File (Ubuntu only)                 """"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                                            "
+"                    Author: Jorge Calás Lozano                              "
+"                    Email:  calas@qvitta.net                                "
+"                                                                            "
+"----------------------------------------------------------------------------"
 "
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
@@ -19,23 +26,6 @@ set hlsearch    "hilight searches by default
 set number      "add line numbers
 set showbreak=…
 set wrap linebreak nolist
-
-"mapping for command key to map navigation thru display lines instead
-"of just numbered lines
-"
-" Probably useless with a normal keyboard
-"
-" TODO: fix, remove or something
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-4> g$
-vmap <D-6> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk
-nmap <D-4> g$
-nmap <D-6> g^
-nmap <D-0> g^
 
 "add some line space for easy reading
 set linespace=4
@@ -96,6 +86,7 @@ set laststatus=2
 "turn off needless toolbar on gvim/mvim
 set guioptions-=T
 set guioptions-=m
+set guioptions-=r
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
@@ -112,7 +103,6 @@ function! StatuslineTrailingSpaceWarning()
     endif
     return b:statusline_trailing_space_warning
 endfunction
-
 
 "return the syntax highlight group under the cursor ''
 function! StatuslineCurrentHighlight()
@@ -271,6 +261,9 @@ inoremap <C-L> <C-O>:nohls<CR>
 "map edit VIMRC
 map <leader>v :edit $MYVIMRC<CR>
 
+" map open master.otl
+map <leader>m :edit ~/Work/master.otl<CR>
+
 "map to bufexplorer
 nnoremap <leader>b :BufExplorer<CR>
 
@@ -307,9 +300,10 @@ try
 catch
   source ~/vimfiles/snippets/support_functions.vim
 endtry
-autocmd vimenter * call s:SetupSnippets()
-function! s:SetupSnippets()
 
+autocmd vimenter * call s:SetupSnippets()
+
+function! s:SetupSnippets()
     "if we're in a rails env then read in the rails snippets
     if filereadable("./config/environment.rb")
         call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
@@ -328,6 +322,7 @@ function! s:VSetSearch()
     let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
     let @@ = temp
 endfunction
+
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 
@@ -362,6 +357,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+
+map <A-p> :!cucumber -p gvim %
 
 set virtualedit=all
 " set cpoptions+=$
@@ -434,21 +431,6 @@ if has("gui_running")
     set lines=40
     set columns=115
   endif
-
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h14
-    " key binding for Command-T to behave properly
-    " uncomment to replace the Mac Command-T key to Command-T plugin
-    "macmenu &File.New\ Tab key=<nop>
-    "map <D-t> :CommandT<CR>
-    " make Mac's Option key behave as the Meta key
-    set invmmta
-  endif
-
-  if has("gui_win32") || has("gui_win32s")
-    set guifont=Consolas:h12
-    set enc=utf-8
-  endif
 else
   "dont load csapprox if there is no gui support - silences an annoying warning
   let g:CSApprox_loaded = 1
@@ -458,11 +440,11 @@ endif
 "  autocmd bufwritepost .vimrc source $MYVIMRC
 "endif
 "
-au BufRead,BufNewFile /usr/local/nginx/conf/* set ft=nginx 
-au BufRead,BufNewFile /usr/local/nginx/sites-available/* set ft=nginx 
-au BufRead,BufNewFile /usr/local/nginx/sites-enabled/* set ft=nginx 
-au BufRead,BufNewFile /opt/nginx/conf/* set ft=nginx 
-au BufRead,BufNewFile /opt/nginx/sites-available/* set ft=nginx 
-au BufRead,BufNewFile /opt/nginx/sites-enabled/* set ft=nginx 
+au BufRead,BufNewFile /usr/local/nginx/conf/* set ft=nginx
+au BufRead,BufNewFile /usr/local/nginx/sites-available/* set ft=nginx
+au BufRead,BufNewFile /usr/local/nginx/sites-enabled/* set ft=nginx
+au BufRead,BufNewFile /opt/nginx/conf/* set ft=nginx
+au BufRead,BufNewFile /opt/nginx/sites-available/* set ft=nginx
+au BufRead,BufNewFile /opt/nginx/sites-enabled/* set ft=nginx
 
 " let Tlist_Auto_Open = 1

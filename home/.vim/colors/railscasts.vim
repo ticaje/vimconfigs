@@ -99,3 +99,5 @@ highlight NonText                   guifg=#4a4a59
 highlight SpecialKey                guifg=#4a4a59
 
 highlight Folded                    guifg=#4a4a59 ctermfg=22
+
+highlight rubyTodo                 guifg=#cc3333 ctermfg=167 guibg=NONE ctermbg=NONE gui=bold,italic,underline cterm=underline
