@@ -204,7 +204,7 @@ set autoindent
 "folding settings
 set foldmethod=syntax   "fold based on indent
 set foldnestmax=10       "deepest fold is 3 levels
-" set nofoldenable        "dont fold by default
+set nofoldenable        "dont fold by default
 
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
@@ -422,7 +422,7 @@ if has("gui_running")
 
   " if $COLORTERM == 'gnome-terminal'
   if has("gui_gnome")
-    set term=gnome-256color
+    set term=xterm-256color
     colorscheme railscasts
     set guifont=Inconsolata\ Medium\ 9
   else
@@ -446,5 +446,17 @@ au BufRead,BufNewFile /usr/local/nginx/sites-enabled/* set ft=nginx
 au BufRead,BufNewFile /opt/nginx/conf/* set ft=nginx
 au BufRead,BufNewFile /opt/nginx/sites-available/* set ft=nginx
 au BufRead,BufNewFile /opt/nginx/sites-enabled/* set ft=nginx
+
+
+
+function ModeChange()
+  if getline(1) =~ "^#!"
+    if getline(1) =~ "/bin/"
+      silent !chmod a+x <afile>
+    endif
+  endif
+endfunction
+
+au BufWritePost * call ModeChange()
 
 " let Tlist_Auto_Open = 1
