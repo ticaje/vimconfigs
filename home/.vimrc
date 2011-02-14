@@ -27,6 +27,10 @@ set number      "add line numbers
 set showbreak=…
 set wrap linebreak nolist
 
+" no backup or swap file
+set nobackup
+set noswapfile
+
 "add some line space for easy reading
 set linespace=4
 
@@ -399,6 +403,12 @@ map <leader>s :call ToggleScratch()<CR>
 " Use ack (ack-grep) for grep searches
 set grepprg=ack
 set grepformat=%f:%l:%m
+
+" Set paste mode (no indent)
+set pastetoggle=<F2>
+
+" Write with sudo
+cmap w!! w !sudo tee % >/dev/null
 
 " TODO: I haven't manage to make VIM to break long lines automatically, this
 "       can be very useful on plain text files and other filetypes, but not
