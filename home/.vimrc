@@ -458,8 +458,12 @@ au BufRead,BufNewFile /opt/nginx/sites-available/* set ft=nginx
 au BufRead,BufNewFile /opt/nginx/sites-enabled/* set ft=nginx
 
 
+au BufRead,BufNewFile Vagrantfile set ft=ruby
+au BufRead,BufNewFile Guardfile set ft=ruby
 
-function ModeChange()
+au BufRead,BufNewFile *.yml set ft=yaml
+
+function! ModeChange()
   if getline(1) =~ "^#!"
     if getline(1) =~ "/bin/"
       silent !chmod a+x <afile>
