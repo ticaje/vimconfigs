@@ -82,3 +82,6 @@
 [submodule "home/.vim/bundle/tabular"]
 	path = home/.vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "plugins/sparkup"]
+	path = plugins/sparkup
+	url = git://github.com/rstacruz/sparkup.git
