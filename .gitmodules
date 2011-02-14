@@ -79,3 +79,6 @@
 [submodule "home/.vim/bundle/ruby-refactoring"]
 	path = home/.vim/bundle/ruby-refactoring
 	url = git://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "home/.vim/bundle/tabular"]
+	path = home/.vim/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
