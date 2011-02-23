@@ -224,7 +224,7 @@ set listchars=tab:»·,trail:·,eol:¬
 set formatoptions-=o "dont continue comments when pushing o/O
 
 "vertical/horizontal scroll off settings
-set scrolloff=3
+" set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
@@ -275,7 +275,7 @@ nnoremap <leader>b :BufExplorer<CR>
 nnoremap <leader>t :CommandT<CR>
 
 " map Ctrl-P to FuzzyFinder File
-nnoremap <C-?> :FufFile<CR>
+nnoremap <F10> :FufFile<CR>
 nnoremap <leader>f :FufFile <C-r>=fnamemodify(getcwd(), ':p')<CR><CR>
 
 "map Q to something useful
@@ -429,21 +429,17 @@ cmap w!! w !sudo tee % >/dev/null
 if has("gui_running")
  "tell the term has 256 colors
  set t_Co=256
-
- " if $COLORTERM == 'gnome-terminal'
- if has("gui_gnome")
-   set term=xterm-256color
-   colorscheme desert
-   set guifont=Inconsolata\ Medium\ 9
- else
-   colorscheme ir_dark
-   set guitablabel=%M%t
-   set lines=40
-   set columns=115
- endif
 else
   "dont load csapprox if there is no gui support - silences an annoying warning
   let g:CSApprox_loaded = 1
+endif
+
+if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'Terminal'
+  set term=gnome-256color
+  colorscheme railscasts
+  set guifont=Inconsolata\ Medium\ 9
+else
+  colorscheme default
 endif
 
 "if has("autocmd")
@@ -508,3 +504,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+nmap <leader>u 1GO# encoding: utf-8<ESC>
+
+nnoremap <F5> :GundoToggle<CR>
