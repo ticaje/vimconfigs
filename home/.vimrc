@@ -224,7 +224,7 @@ set listchars=tab:»·,trail:·,eol:¬
 set formatoptions-=o "dont continue comments when pushing o/O
 
 "vertical/horizontal scroll off settings
-set scrolloff=3
+" set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
