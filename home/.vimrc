@@ -275,7 +275,7 @@ nnoremap <leader>b :BufExplorer<CR>
 nnoremap <leader>t :CommandT<CR>
 
 " map Ctrl-P to FuzzyFinder File
-nnoremap <C-?> :FufFile<CR>
+nnoremap <F10> :FufFile<CR>
 nnoremap <leader>f :FufFile <C-r>=fnamemodify(getcwd(), ':p')<CR><CR>
 
 "map Q to something useful
