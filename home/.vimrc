@@ -429,21 +429,17 @@ cmap w!! w !sudo tee % >/dev/null
 if has("gui_running")
  "tell the term has 256 colors
  set t_Co=256
-
- " if $COLORTERM == 'gnome-terminal'
- if has("gui_gnome")
-   set term=xterm-256color
-   colorscheme desert
-   set guifont=Inconsolata\ Medium\ 9
- else
-   colorscheme ir_dark
-   set guitablabel=%M%t
-   set lines=40
-   set columns=115
- endif
 else
   "dont load csapprox if there is no gui support - silences an annoying warning
   let g:CSApprox_loaded = 1
+endif
+
+if $COLORTERM == 'gnome-terminal' || $COLORTERM == 'Terminal'
+  set term=gnome-256color
+  colorscheme railscasts
+  set guifont=Inconsolata\ Medium\ 9
+else
+  colorscheme default
 endif
 
 "if has("autocmd")
