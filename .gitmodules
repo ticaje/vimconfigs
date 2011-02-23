@@ -85,3 +85,6 @@
 [submodule "plugins/sparkup"]
 	path = plugins/sparkup
 	url = git://github.com/rstacruz/sparkup.git
+[submodule "home/.vim/bundle/gundo"]
+	path = home/.vim/bundle/gundo
+	url = git://github.com/sjl/gundo.vim.git
