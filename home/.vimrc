@@ -271,9 +271,6 @@ map <leader>m :edit ~/Work/master.otl<CR>
 "map to bufexplorer
 nnoremap <leader>b :BufExplorer<CR>
 
-"map to CommandT TextMate style finder
-nnoremap <leader>t :CommandT<CR>
-
 " map Ctrl-P to FuzzyFinder File
 nnoremap <F10> :FufFile<CR>
 nnoremap <leader>f :FufFile <C-r>=fnamemodify(getcwd(), ':p')<CR><CR>
