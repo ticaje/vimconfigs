@@ -505,6 +505,6 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-nmap <leader>u 1GO# encoding: utf-8<ESC>
+nmap <leader>u 1GO# encoding: utf-8<CR><ESC>
 
 nnoremap <F5> :GundoToggle<CR>
