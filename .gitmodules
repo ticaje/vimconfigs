@@ -46,9 +46,6 @@
 [submodule "home/.vim/bundle/pastie"]
 	path = home/.vim/bundle/pastie
 	url = git://github.com/tpope/vim-pastie.git
-[submodule "home/.vim/bundle/Command-T"]
-	path = home/.vim/bundle/Command-T
-	url = git://github.com/akitaonrails/Command-T.git
 [submodule "home/.vim/bundle/textile"]
 	path = home/.vim/bundle/textile
 	url = git://github.com/timcharper/textile.vim.git
