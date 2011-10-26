@@ -94,3 +94,6 @@
 [submodule "home/.vim/bundle/gnupg"]
 	path = home/.vim/bundle/gnupg
 	url = git://gitorious.org/vim-gnupg/vim-gnupg.git
+[submodule "home/.vim/bundle/jst"]
+	path = home/.vim/bundle/jst
+	url = https://github.com/briancollins/vim-jst.git
