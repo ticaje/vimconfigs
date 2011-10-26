@@ -79,9 +79,6 @@
 [submodule "home/.vim/bundle/tabular"]
 	path = home/.vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "plugins/sparkup"]
-	path = plugins/sparkup
-	url = git://github.com/rstacruz/sparkup.git
 [submodule "home/.vim/bundle/gundo"]
 	path = home/.vim/bundle/gundo
 	url = git://github.com/sjl/gundo.vim.git
@@ -94,3 +91,9 @@
 [submodule "home/.vim/bundle/zencoding"]
 	path = home/.vim/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
+[submodule "home/.vim/bundle/gnupg"]
+	path = home/.vim/bundle/gnupg
+	url = git://gitorious.org/vim-gnupg/vim-gnupg.git
+[submodule "home/.vim/bundle/jst"]
+	path = home/.vim/bundle/jst
+	url = https://github.com/briancollins/vim-jst.git
