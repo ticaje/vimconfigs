@@ -97,3 +97,6 @@
 [submodule "home/.vim/bundle/jst"]
 	path = home/.vim/bundle/jst
 	url = https://github.com/briancollins/vim-jst.git
+[submodule "home/.vim/bundle/chef"]
+	path = home/.vim/bundle/chef
+	url = https://github.com/t9md/vim-chef.git
