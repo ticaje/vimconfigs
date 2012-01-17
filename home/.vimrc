@@ -1,12 +1,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""                 Vim Configuration File (Ubuntu only)                 """"
+""""            Vim Configuration File (Ubuntu/Linux only)                """"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                                                            "
 "                    Author: Jorge Calás Lozano                              "
 "                    Email:  calas@qvitta.net                                "
 "                                                                            "
 "----------------------------------------------------------------------------"
-"
+
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -255,9 +255,9 @@ let g:CommandTMatchWindowAtTop=1
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 nmap <leader>p :NERDTreeToggle<CR>
 
-"make <c-l> clear the highlight as well as redraw
-nnoremap <C-L> :nohls<CR><C-L>
-inoremap <C-L> <C-O>:nohls<CR>
+"" make <c-l> clear the highlight as well as redraw
+" nnoremap <C-L> :nohls<CR>
+" inoremap <C-L> <C-O>:nohls<CR>
 
 " map the leader key to ","
 " let mapleader=','
