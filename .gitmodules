@@ -100,3 +100,6 @@
 [submodule "home/.vim/bundle/chef"]
 	path = home/.vim/bundle/chef
 	url = https://github.com/t9md/vim-chef.git
+[submodule "home/.vim/bundle/tslime"]
+	path = home/.vim/bundle/tslime
+	url = https://github.com/xaviershay/tslime.vim.git
