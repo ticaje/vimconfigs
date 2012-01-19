@@ -1,6 +1,6 @@
 [submodule "home/.vim/snippets"]
 	path = home/.vim/snippets
-  url = gitolite@git.tripleadev.com:calas/vim-snippets.git
+	url = gitolite@git.tripleadev.com:calas/vim-snippets.git
 [submodule "home/.vim/bundle/rails"]
 	path = home/.vim/bundle/rails
 	url = git://github.com/tpope/vim-rails.git
