@@ -455,6 +455,7 @@ au BufRead,BufNewFile Vagrantfile set ft=ruby
 au BufRead,BufNewFile Guardfile set ft=ruby
 
 au BufRead,BufNewFile *.yml set ft=yaml
+au BufRead,BufNewFile *.ejs set ft=jst
 
 function! ModeChange()
   if getline(1) =~ "^#!"
