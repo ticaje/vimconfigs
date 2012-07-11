@@ -249,6 +249,12 @@ set ttymouse=xterm2
 set hidden
 
 "Command-T configuration
+nnoremap ,t :CommandT<CR>
+nnoremap ,b :CommandTBuffer<CR>
+
+nnoremap <silent> <Leader>e :CommandT<CR>
+nnoremap <silent> <Leader>n :CommandTBuffer<CR>
+
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
 
