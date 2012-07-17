@@ -106,3 +106,6 @@
 [submodule "home/.vim/bundle/command-t"]
 	path = home/.vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "home/.vim/bundle/vimoutliner"]
+	path = home/.vim/bundle/vimoutliner
+	url = https://github.com/vimoutliner/vimoutliner.git
