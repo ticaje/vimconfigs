@@ -82,9 +82,6 @@
 [submodule "home/.vim/bundle/ack"]
 	path = home/.vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "home/.vim/bundle/makegreen"]
-	path = home/.vim/bundle/makegreen
-	url = https://github.com/reinh/vim-makegreen.git
 [submodule "home/.vim/bundle/zencoding"]
 	path = home/.vim/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
