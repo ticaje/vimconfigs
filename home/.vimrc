@@ -274,6 +274,8 @@ map <leader>v :edit $MYVIMRC<CR>
 " map open master.otl
 map <leader>m :edit ~/Work/master.otl<CR>
 
+au! BufRead,BufNewFile *.otl    set foldenable foldlevel=2
+
 "map to bufexplorer
 nnoremap <leader>b :BufExplorer<CR>
 
