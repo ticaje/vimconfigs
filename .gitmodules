@@ -106,3 +106,6 @@
 [submodule "home/.vim/bundle/vimoutliner"]
 	path = home/.vim/bundle/vimoutliner
 	url = https://github.com/vimoutliner/vimoutliner.git
+[submodule "home/.vim/bundle/webapi"]
+	path = home/.vim/bundle/webapi
+	url = https://github.com/mattn/webapi-vim.git
