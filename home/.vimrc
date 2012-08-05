@@ -248,16 +248,6 @@ set ttymouse=xterm2
 "hide buffers when not displayed
 set hidden
 
-"Command-T configuration
-nnoremap ,t :CommandT<CR>
-nnoremap ,b :CommandTBuffer<CR>
-
-nnoremap <silent> <Leader>e :CommandT<CR>
-nnoremap <silent> <Leader>n :CommandTBuffer<CR>
-
-let g:CommandTMaxHeight=10
-let g:CommandTMatchWindowAtTop=1
-
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 nmap <leader>p :NERDTreeToggle<CR>
 
@@ -280,8 +270,8 @@ au! BufRead,BufNewFile *.otl    set foldenable foldlevel=2
 nnoremap <leader>b :BufExplorer<CR>
 
 " map Ctrl-P to FuzzyFinder File
-nnoremap <F10> :FufFile<CR>
-nnoremap <leader>f :FufFile <C-r>=fnamemodify(getcwd(), ':p')<CR><CR>
+nnoremap <F12> :FufFile<CR>
+" nnoremap <leader>f :FufFile <C-r>=fnamemodify(getcwd(), ':p')<CR><CR>
 
 "map Q to something useful
 noremap Q gq
@@ -476,7 +466,7 @@ function! ModeChange()
   endif
 endfunction
 
-au BufWritePost * call ModeChange()
+" au BufWritePost * call ModeChange()
 
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
@@ -517,3 +507,81 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 nmap <leader>u 1GO# encoding: utf-8<CR><ESC>
 
 nnoremap <F5> :GundoToggle<CR>
+
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+"Command-T configuration
+map ,t :CommandTFlush<cr>\|:CommandT<CR>
+map ,b :CommandTFlush<cr>\|:CommandTBuffer<CR>
+
+map <silent> <Leader>e :CommandTFlush<cr>\|:CommandT<CR>
+map <silent> <Leader>n :CommandTFlush<cr>\|:CommandTBuffer<CR>
+
+map ,gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map ,gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map ,gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map ,gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map ,gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map ,gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
+map ,gf :CommandTFlush<cr>\|:CommandT features<cr>
+map ,gg :topleft 100 :split Gemfile<cr>
+map ,gt :CommandTFlush<cr>\|:CommandTTag<cr>
+map ,f :CommandTFlush<cr>\|:CommandT<cr>
+map ,F :CommandTFlush<cr>\|:CommandT %%<cr>
+
+
+let g:CommandTMaxHeight=10
+let g:CommandTMatchWindowAtTop=1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RUNNING TESTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>t :call RunTestFile()<cr>
+map <leader>T :call RunNearestTest()<cr>
+map <leader>a :call RunTests('')<cr>
+
+function! RunTestFile(...)
+  if a:0
+    let command_suffix = a:1
+  else
+    let command_suffix = ""
+  endif
+
+  " Run the tests for the previously-marked file.
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
+  elseif !exists("t:grb_test_file")
+    return
+  end
+  call RunTests(t:grb_test_file . command_suffix)
+endfunction
+
+command! RunTests :call RunTests('')
+command! RunTestFile :call RunTestFile('')
+
+function! RunNearestTest()
+  let spec_line_number = line('.')
+  call RunTestFile(":" . spec_line_number . " -b")
+endfunction
+
+function! SetTestFile()
+  " Set the spec file that tests will be run for.
+  let t:grb_test_file=@%
+endfunction
+
+function! RunTests(filename)
+  " Write the file and run tests for the given filename
+  :w
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  if match(a:filename, '\.feature$') != -1
+    exec ":!script/features " . a:filename
+  else
+    if filereadable("script/test")
+      exec ":!script/test " . a:filename
+    elseif filereadable("Gemfile")
+      exec ":!bundle exec rspec --color " . a:filename
+    else
+      exec ":!rspec --color " . a:filename
+    end
+  end
+endfunction
