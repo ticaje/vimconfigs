@@ -535,6 +535,8 @@ let g:CommandTMatchWindowAtTop=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <F9> :call RunTestFile()<cr>
+map <F10> :call RunTests('')<cr>
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
