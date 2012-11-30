@@ -97,9 +97,6 @@
 [submodule "home/.vim/bundle/tslime"]
 	path = home/.vim/bundle/tslime
 	url = https://github.com/xaviershay/tslime.vim.git
-[submodule "home/.vim/snippets"]
-	path = home/.vim/snippets
-	url = gitolite@git.tripleadev.com:calas/vim-snippets.git
 [submodule "home/.vim/bundle/command-t"]
 	path = home/.vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
