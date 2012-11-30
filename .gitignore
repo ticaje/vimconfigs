@@ -16,3 +16,10 @@ tmp
 .yardoc
 _yardoc
 doc/
+.DS_Store
+tags
+*~
+*.swp
+.VimballRecord
+.netrwhist
+backup
